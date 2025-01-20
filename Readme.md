@@ -1,5 +1,9 @@
 # Overview
-Simple form to iteratively improve resume (or any text) via OpenAI
+Josh Kutz-Flamenbaum - Demo App - Prompt UI for Resume Optimization
+
+![example workflow](https://github.com/jkutzfla/resumeapp/actions/workflows/main.yml/badge.svg)
+
+
 
 # Frontend
 React
