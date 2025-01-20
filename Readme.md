@@ -11,5 +11,11 @@ React
 # Backend
 Express
 
+# Dev
+run the backend express locally, frontend vite dev with proxy
+
 # Deploy
-container app on Azure
+container app on Azure, script in /infra
+
+
+
