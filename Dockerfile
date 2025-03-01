@@ -1,11 +1,19 @@
-FROM node:lts-alpine
+FROM node:lts-alpine AS builder
 ENV NODE_ENV=development
 
 LABEL version="0.0.3"
 
-WORKDIR /express-api
-COPY backend/package.json ./ 
+WORKDIR /app
+COPY frontend/package.json ./
 RUN npm install
+COPY frontend/ ./
+RUN npm run build
+
+FROM node:lts-alpine
+WORKDIR /app
+COPY backend/package.json ./ 
+RUN npm install --omit=dev
+COPY --from=builder /app/dist ./public
 COPY backend/app.js .
 
 EXPOSE 3003

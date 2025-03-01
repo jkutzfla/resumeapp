@@ -7,8 +7,9 @@ const https = require('https')
 const cors = require('cors')
 app.use(cors());  //Default to allow all
 
+// default to serve static content
 const path = require('path')
-app.use('/static', express.static(path.join(__dirname, 'public')))
+app.use('/', express.static(path.join(__dirname, 'public')))
 
 app.use(express.json()) // to support JSON-encoded bodies
 
@@ -63,10 +64,11 @@ const prompt = {
 
 
 app.get('/', (req, res) => {
-	res.send('Hello World')
+	// res.send('Hello World')
+	res.redirect('/index.html')
 })
 
-app.get('/test', (req, res) => {
+app.get('/api/test', (req, res) => {
 	res.send('Test OK, Time is: ' + (new Date()).toString() + '<br>' + 'API_TYPE=' + apitype)
 })
 
@@ -172,6 +174,13 @@ app.get('/check', function (req, res) {
 	});
 	request.end();
 });
+
+// catch-all rule to serve index.html, to support React Router
+app.get('*', (req, res) => {
+	// res.redirect('/');
+	res.sendFile(path.join(__dirname, 'public', 'index.html'));
+	// res.status(404).send('404 Not Found')
+})
 
 app.listen(port, () => {
 	console.log(`Express app listening on port ${port}. Browse here: http://localhost:${port}/`)
