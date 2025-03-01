@@ -13,7 +13,9 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<MainLayout/>}>
       <Route index element={ <HomePage /> }/>
+      <Route path='/index.html' element={ <HomePage /> } />
       <Route path='/prompt' element={ <PromptPage />} />
+      <Route path='*' element={ <div><b>404 Not Found</b></div> } />
     </Route>
   )
 )
