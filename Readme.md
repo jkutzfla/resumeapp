@@ -1,9 +1,7 @@
 # Overview
 Josh Kutz-Flamenbaum - Demo App - Prompt UI for Resume Optimization
 
-![Docker image workflow](https://github.com/jkutzfla/resumeapp/actions/workflows/docker-image.yml/badge.svg)
-
-
+[![Docker Image CI](https://github.com/jkutzfla/resumeapp/actions/workflows/docker-image.yml/badge.svg)](https://github.com/jkutzfla/resumeapp/actions/workflows/docker-image.yml)
 
 # Frontend
 React
