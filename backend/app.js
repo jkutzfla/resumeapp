@@ -1,6 +1,7 @@
 const { time } = require('console')
 const express = require('express')
 const app = express()
+const host = process.env.EXPRESS_HOST || 'localhost'
 const port = process.env.EXPRESS_PORT || 3003
 const http = require('http')
 const https = require('https')
@@ -72,12 +73,12 @@ app.get('/api/test', (req, res) => {
 	res.send('Test OK, Time is: ' + (new Date()).toString() + '<br>' + 'API_TYPE=' + apitype)
 })
 
-app.post('/echo', (req, res) => {
+app.post('/api/echo', (req, res) => {
 	const echo_in = req?.body?.echo_in;
 	res.json({ echo_out: echo_in })
 });
 
-app.post('/openai', (request, response) => {
+app.post('/api/openai', (request, response) => {
 	const promptInput = request.body?.promptInput;
 	console.log("in POST, request.body: ", promptInput);
 
@@ -118,7 +119,8 @@ app.post('/openai', (request, response) => {
 
 })
 
-app.get('/openai', (request, response) => {
+// diagnostic endpoint to check the API key
+app.get('/api/openai', (request, response) => {
 	const data_in = JSON.stringify(prompt);
 	const options = {
 		hostname: 'api.openai.com',
@@ -152,12 +154,13 @@ app.get('/openai', (request, response) => {
 })
 
 
-
-app.get('/check', function (req, res) {
+// diagnostic endpoint to check HTTP request to itself.
+app.get('/api/check', function (req, res) {
+	console.log(`About to run GET on http://${host}:${port}/api/test.`);
 	var request = http.request({
-		host: 'localhost',
-		port: 3003,
-		path: '/test',
+		host: host,
+		port: port,
+		path: '/api/test',
 		method: 'GET',
 		headers: {
 			// headers such as "Cookie" can be extracted from req object and sent to /test
@@ -183,5 +186,5 @@ app.get('*', (req, res) => {
 })
 
 app.listen(port, () => {
-	console.log(`Express app listening on port ${port}. Browse here: http://localhost:${port}/`)
+	console.log(`Express app listening on port ${port}. Internal access here: http://${host}:${port}/`)
 })
