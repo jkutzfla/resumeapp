@@ -1,7 +1,8 @@
 const { time } = require('console')
 const express = require('express')
+const os = require('os')
 const app = express()
-const host = process.env.EXPRESS_HOST || 'localhost'
+const host = os.hostname() || 'localhost'
 const port = process.env.EXPRESS_PORT || 3003
 const http = require('http')
 const https = require('https')
@@ -156,7 +157,7 @@ app.get('/api/openai', (request, response) => {
 
 // diagnostic endpoint to check HTTP request to itself.
 app.get('/api/check', function (req, res) {
-	console.log(`About to run GET on http://${host}:${port}/api/test.`);
+	console.log(`About to run GET on http://${host}:${port}/api/test`);
 	var request = http.request({
 		host: host,
 		port: port,
