@@ -7,12 +7,9 @@ const https = require('https')
 const cors = require('cors')
 app.use(cors());  //Default to allow all
 
-// default to serve static content
-const path = require('path')
-app.use('/', express.static(path.join(__dirname, 'public')))
-
 app.use(express.json()) // to support JSON-encoded bodies
 
+// middleware to log all requests
 const logger = (req, res, next) => {
 	res.on("finish", () => {
 		console.log(`Express log ${req.method} ${req.originalUrl} : ${res.statusCode} : Client IP: ${req.ip}`);
@@ -22,6 +19,9 @@ const logger = (req, res, next) => {
 
 app.use(logger);
 
+// default to serve static content
+const path = require('path')
+app.use('/', express.static(path.join(__dirname, 'public')))
 
 
 const apitype = process.env.API_TYPE
