@@ -21,6 +21,9 @@ jobs:
       with:
         node-version: '16'
         cache: 'npm'
+    - name: list files
+      run: ls -la
+      working-directory: ./backend
 
     - name: Install dependencies
       run: npm install
