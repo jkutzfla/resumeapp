@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
+    "test-watch": "mocha --watch",
     "dev": "node app.js",
     "dev2": "node --env-file=.env app.js"
   },
@@ -16,6 +17,7 @@
     "express": "^4.21.2"
   },
   "devDependencies": {
-    "mocha": "^11.1.0"
+    "mocha": "^11.1.0",
+    "supertest": "^7.0.0"
   }
 }
