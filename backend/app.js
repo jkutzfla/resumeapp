@@ -186,8 +186,8 @@ app.get('*', (req, res) => {
 	// res.status(404).send('404 Not Found')
 })
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
 	console.log(`Express app listening on port ${port}. Internal access here: http://${host}:${port}/`)
 })
 
-module.exports = app
+module.exports = server
