@@ -40,3 +40,8 @@ describe('Static html file', () => {
             });
     });
 });
+
+// Close the server after all tests
+after(() => {
+    app.close();
+});
