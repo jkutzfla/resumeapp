@@ -21,6 +21,8 @@ jobs:
       with:
         node-version: '16'
         cache: 'npm'
+        cache-dependency-path: ./backend/package-lock.json
+      
     - name: list files
       run: ls -la
       working-directory: ./backend
