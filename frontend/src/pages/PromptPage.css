@@ -1,0 +1,83 @@
+
+  
+  .app-container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding-left: 2rem;
+	padding-right: 2rem;
+  }
+  
+  h1 {
+	color: #333;
+	margin-bottom: 2rem;
+  }
+  
+  .input-group {
+	margin-bottom: 1.5rem;
+	text-align: left;
+  }
+  
+  label {
+	display: block;
+	margin-bottom: 0.5rem;
+	color: #666;
+  }
+  
+  textarea {
+	width: 100%;
+	padding: 0.75rem;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 1rem;
+	resize: both;
+	min-height: 6em;
+	line-height: 1.5;
+	font-family: inherit;
+  }
+  
+  textarea:focus {
+	outline: none;
+	border-color: #646cff;
+	box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.2);
+  }
+  
+  button {
+	background-color: #646cff;
+	color: white;
+	border: none;
+	padding: 0.75rem 1.5rem;
+	border-radius: 4px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background-color 0.2s;
+  }
+  
+  button:hover {
+	background-color: #535bf2;
+  }
+  
+  button:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+  }
+  
+  .response-section {
+	margin-top: 2rem;
+	text-align: left;
+  }
+  
+  .response-section h2 {
+	color: #333;
+	margin-bottom: 1rem;
+  }
+  
+  .response-box {
+	background-color: #f5f5f5;
+	padding: 1rem;
+	border-radius: 4px;
+	min-height: 100px;
+	border: 1px solid #ddd;
+	white-space: pre-wrap;
+  }
+  
+  
