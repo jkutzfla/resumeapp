@@ -108,9 +108,12 @@ app.post('/api/openai', (request, response) => {
 		});
 
 		res2.on('end', () => {
-			console.log('Body: ', JSON.parse(data_out));
-
-			response.status(res2.statusCode).send(data_out);
+			const payload = JSON.parse(data_out);
+			// console.log('Body: ', JSON.parse(data_out));
+			const r = { "response": payload };
+			console.log('Payload: ', r);
+			response.type('json');
+			response.status(res2.statusCode).send(r);
 		})
 	}).on("error", (err) => {
 		console.log("Error: ", err.message);
