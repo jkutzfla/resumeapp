@@ -17,3 +17,6 @@ container app on Azure, script in /infra
 
 
 
+# Docker
+docker build -t my-node-app:v1 .
+docker run -p 3003:3003  --rm --name my-resume-app my-node-app:v1 
